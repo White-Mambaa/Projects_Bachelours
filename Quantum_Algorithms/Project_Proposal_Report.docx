@@ -1,0 +1,199 @@
+Understood. This clarification changes how we should position the project academically.
+
+We are not proposing an independent four-month PhD research program. We are preparing a substantial, software-based project for your advanced Quantum Algorithms course, with the mathematical rigor expected of a doctoral-level course but a scope that is realistic for one course project.
+
+The first milestone is supervisor approval of a professional project proposal. We should not start implementation or commit to a particular experimental design before that approval.
+
+## Corrected academic context
+
+| Item                       | Confirmed direction                                              |
+| -------------------------- | ---------------------------------------------------------------- |
+| Course                     | Quantum Algorithms                                               |
+| Course code                | QT789_D                                                          |
+| Course level               | Level 7                                                          |
+| Academic background        | Computer Science, with advanced AI and Machine Learning research |
+| Project category           | Course-based research and implementation project                 |
+| Original course duration   | 8 months                                                         |
+| Available project duration | 4 months                                                         |
+| Project approach           | Entirely software-based                                          |
+| Hardware requirement       | None                                                             |
+| Foundational references    | Octad eight-textbook framework                                   |
+| Immediate deliverable      | Professional proposal for guide approval                         |
+
+This means our project should emphasize quantum algorithms, theoretical computer science, optimization, algorithm engineering, and reproducible computational experiments—not physical quantum hardware, calibration, or device engineering.
+
+We can still study mathematical noise models in simulation if they support the research question, but they should not dominate the project.
+
+## Recommended project positioning
+
+I suggest retaining QAOA and weighted Max-Cut as our proposed topic, but making the title more appropriate for a software-oriented Quantum Algorithms course.
+
+Proposed title:
+
+Design, Mathematical Analysis, and Software-Based Evaluation of the Quantum Approximate Optimization Algorithm for Combinatorial Optimization
+
+This gives us enough flexibility to investigate graph optimization, quantum circuit simulation, variational parameter optimization, and classical-versus-quantum algorithm comparisons without promising a novel quantum algorithm or access to quantum hardware.
+
+The guide can approve the broad topic first. We can then refine the exact research questions and experiments.
+
+## Professional proposal — First draft
+
+# PROJECT PROPOSAL
+
+## Design, Mathematical Analysis, and Software-Based Evaluation of the Quantum Approximate Optimization Algorithm for Combinatorial Optimization
+
+**Course:** Quantum Algorithms (QT789_D)\
+**Course Level:** 7\
+**Project Duration:** Four Months\
+**Project Domain:** Quantum Algorithms, Computer Science, and Computational Optimization\
+**Implementation Mode:** Software-Based Quantum Simulation\
+**Project Status:** Proposed — Subject to Faculty Guide Approval
+
+### 1. Abstract
+
+Quantum algorithms provide alternative computational approaches to problems involving search, optimization, and mathematical computation. Among these, the Quantum Approximate Optimization Algorithm (QAOA) is a hybrid quantum-classical algorithm designed to obtain approximate solutions to combinatorial optimization problems.
+
+This project proposes a rigorous mathematical and software-based investigation of QAOA, using the Max-Cut problem as the primary optimization benchmark. The study will formulate the optimization problem using quantum Hamiltonians, construct parameterized quantum circuits, implement classical simulation of quantum state evolution, and evaluate the algorithm under different problem instances, circuit depths, and optimization strategies.
+
+The research will also compare QAOA against appropriate classical optimization baselines, examining approximation quality, computational resource requirements, parameter sensitivity, and algorithmic limitations.
+
+The project will be implemented entirely through software-based simulation without requiring physical quantum computing hardware. The theoretical framework will be grounded in eight prescribed quantum computation and quantum algorithms textbooks.
+
+The expected outcome is a reproducible computational research framework, a mathematically supported analysis of QAOA, and a systematic evaluation of its strengths and limitations for selected combinatorial optimization problems.
+
+### 2. Introduction and Motivation
+
+Combinatorial optimization problems arise across computer science, artificial intelligence, machine learning, scheduling, network analysis, and resource allocation. Many such problems are computationally challenging, particularly as the number of decision variables increases.
+
+Quantum computing introduces computational models based on superposition, unitary transformations, interference, and quantum measurement. Quantum optimization algorithms attempt to exploit these principles to explore structured optimization problems.
+
+QAOA provides a suitable setting for investigating the relationship between quantum algorithm design and classical optimization. Its performance depends on the problem Hamiltonian, parameterized quantum circuit, circuit depth, and classical parameter optimization procedure.
+
+A systematic study of these components is valuable for understanding both the theoretical capabilities and practical computational limitations of variational quantum algorithms.
+
+### 3. Problem Statement
+
+Although QAOA provides a general framework for approximate combinatorial optimization, its performance is sensitive to circuit depth, parameter selection, problem structure, and computational resource constraints.
+
+The central problem addressed in this project is:
+
+**How do quantum circuit depth, optimization parameters, and graph structure influence the solution quality and computational efficiency of QAOA for combinatorial optimization problems?**
+
+The study will use weighted and unweighted Max-Cut instances to investigate this question through mathematical analysis and reproducible simulation.
+
+### 4. Project Objectives
+
+1. Establish the mathematical foundations of QAOA using linear algebra, quantum operators, unitary transformations, and measurement theory.
+2. Formulate Max-Cut as a quantum optimization problem using an appropriate cost Hamiltonian.
+3. Design and implement parameterized QAOA circuits through software-based quantum simulation.
+4. Investigate the effect of circuit depth, variational parameters, and graph structure on optimization performance.
+5. Evaluate alternative classical parameter optimization and initialization strategies.
+6. Compare QAOA against exact solutions and appropriate classical optimization methods.
+7. Analyze algorithmic complexity, circuit resources, computational scalability, and practical limitations.
+8. Produce a reproducible experimental framework and comprehensive technical report.
+
+### 5. Research Questions
+
+**RQ1:** How can weighted Max-Cut be formulated and analyzed through the Hamiltonian representation used by QAOA?
+
+**RQ2:** How does increasing QAOA circuit depth affect approximation quality and computational cost for selected graph families?
+
+**RQ3:** How sensitive is QAOA performance to the choice of initial parameters and classical optimization method?
+
+**RQ4:** Can graph structural information assist parameter initialization or transfer between related optimization instances?
+
+**RQ5:** Under controlled computational budgets, how does simulated QAOA compare with selected classical optimization baselines?
+
+### 6. Proposed Methodology
+
+The project will proceed through five principal stages.
+
+**Stage I — Mathematical Foundations**
+
+Study quantum states, tensor products, Hermitian and unitary operators, quantum gates, measurement, and computational complexity. Derive the mathematical formulation of the Max-Cut cost Hamiltonian and QAOA state evolution.
+
+**Stage II — Quantum Algorithm and Circuit Design**
+
+Construct the QAOA cost and mixing operators, parameterized circuit layers, and mathematical expressions for expected optimization objectives. Analyze the associated gate counts and circuit complexity.
+
+**Stage III — Software Implementation**
+
+Implement QAOA using Python and suitable quantum computing software frameworks. Develop an independent numerical reference implementation for verifying small problem instances.
+
+**Stage IV — Experimental Evaluation**
+
+Generate structured and random graph instances. Investigate approximation ratios, optimization convergence, circuit depth, parameter initialization, and computational requirements. Compare results against classical reference algorithms.
+
+**Stage V — Analysis and Reporting**
+
+Validate experimental findings, assess limitations, document reproducibility, and prepare a complete technical research report.
+
+### 7. Software and Computational Resources
+
+The proposed implementation will use Python and appropriate scientific computing and quantum simulation libraries, potentially including NumPy, SciPy, NetworkX, Qiskit, or PennyLane.
+
+Experiments will run in a cloud-based notebook environment such as Google Colab or Kaggle.
+
+No physical quantum processor or specialized quantum hardware is required.
+
+### 8. Expected Outcomes
+
+The project is expected to deliver:
+
+- A rigorous mathematical formulation of QAOA for Max-Cut.
+- A validated software-based quantum circuit simulation framework.
+- An experimental analysis of circuit depth and parameter optimization.
+- Comparative results against selected classical algorithms.
+- An assessment of computational complexity and scalability.
+- A reproducible codebase with documented experiments.
+- A complete technical project report and presentation.
+
+The project does not presume that QAOA will outperform classical algorithms. Both positive and negative experimental findings will be evaluated scientifically.
+
+### 9. Proposed Timeline
+
+| Month   | Primary Activities                                                                   | Deliverable                                     |
+| ------- | ------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| Month 1 | Foundational study, mathematical formulation, literature review, and baseline design | Mathematical foundations and validated baseline |
+| Month 2 | QAOA circuit development, implementation, and initial experiments                    | Functional quantum simulation framework         |
+| Month 3 | Parameter studies, graph experiments, and classical comparisons                      | Experimental results and analysis               |
+| Month 4 | Verification, complexity analysis, documentation, and report preparation             | Final report, code, and presentation            |
+
+### 10. Scope and Limitations
+
+The project will focus on software-based quantum algorithm analysis and simulation. Physical quantum hardware implementation, experimental hardware calibration, and quantum processor engineering are outside the project scope.
+
+The primary optimization problem will be Max-Cut. Extensions to additional optimization problems will be considered only if time and computational resources permit.
+
+Claims regarding quantum advantage will be restricted to what can be theoretically established or experimentally demonstrated under explicitly stated conditions.
+
+### 11. Foundational References
+
+1. Nielsen, M. A., and Chuang, I. L. *Quantum Computation and Quantum Information*.
+2. Lipton, R. J., and Regan, K. W. *Quantum Algorithms via Linear Algebra*.
+3. Buchmann, J. A. *Introduction to Quantum Algorithms*.
+4. Rieffel, E. G., and Polak, W. H. *Quantum Computing: A Gentle Introduction*.
+5. Mermin, N. D. *Quantum Computer Science: An Introduction*.
+6. Aaronson, S. *Quantum Computing Since Democritus*.
+7. Kaye, P., Laflamme, R., and Mosca, M. *An Introduction to Quantum Computing*.
+8. Nakahara, M., and Ohmi, T. *Quantum Computing: From Linear Algebra to Physical Realizations*.
+
+The specific QAOA formulation and its historical attribution will be documented separately, while foundational mathematical claims will be cross-verified against the prescribed textbook canon.
+
+### 12. Conclusion
+
+This project proposes a mathematically rigorous and computationally reproducible study of the Quantum Approximate Optimization Algorithm for combinatorial optimization.
+
+By integrating quantum algorithm theory, circuit simulation, classical optimization, and experimental evaluation, the project aims to develop a detailed understanding of QAOA's behavior and limitations within a four-month course-project schedule.
+
+The proposed work is intended to satisfy the academic requirements of the Quantum Algorithms course while remaining aligned with a computer science and advanced AI/ML research background.
+
+**Submitted for faculty guide review and approval.**
+
+## Before we finalize it
+
+This is Proposal Version 1.0, not the final submission. We should refine its research gap, methodology, scope, measurable objectives, and references before submitting it to your guide.
+
+One important question: Has your guide specified a required proposal format or page limit, or are you free to submit a professionally structured research proposal?
+
+That will determine whether we prepare a concise 3–5-page approval proposal or a more detailed 8–12-page academic proposal.
