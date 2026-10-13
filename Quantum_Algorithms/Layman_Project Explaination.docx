@@ -1,0 +1,168 @@
+## 1. What exactly is our project?
+
+Imagine you have a network of computers, and you want to divide them into two groups.
+
+Every connection between computers has a value or importance.
+
+Your challenge is to divide the computers into two groups so that the total value of connections crossing between the groups is as large as possible.
+
+This is called the Max-Cut problem.
+
+It is an optimization problem: we are trying to find the best possible answer among many combinations.
+
+As the number of computers grows, the number of possible ways to divide them grows extremely quickly.
+
+For example:
+
+| Number of computers | Possible assignments to two groups |
+| ------------------- | ---------------------------------- |
+| 5                   | 32                                 |
+| 10                  | 1,024                              |
+| 20                  | 1,048,576                          |
+| 30                  | 1,073,741,824                      |
+
+These counts include swapping the names of the two groups; for a nonempty undirected graph, that symmetry means there are half as many distinct partitions.
+
+Now imagine trying to find the best partition among more than a billion assignments.
+
+That is the kind of problem our project studies.
+
+## 2. Where does quantum computing come in?
+
+Normally, a classical computer might search through possible answers, use mathematical optimization, or apply intelligent heuristics.
+
+Our project explores a different approach called QAOA — Quantum Approximate Optimization Algorithm.
+
+Think of QAOA as a system with two cooperating parts.
+
+Optimization problem
+
+Find the best division of the network
+
+Simulated quantum circuit
+
+Creates a probability distribution over possible answers
+
+Classical optimizer
+
+Adjusts the quantum circuit's parameters to improve the expected result
+
+The quantum simulation and classical optimizer repeat this process
+
+Final candidate solution
+
+Measure candidate partitions and evaluate their cut values
+
+Here is a simple analogy.
+
+Imagine tuning a radio. Initially, you hear a lot of noise. You adjust the controls, listen again, and continue adjusting until you receive a clearer signal.
+
+QAOA works somewhat similarly. We adjust parameters of a quantum circuit to increase the probability of obtaining good solutions.
+
+The important difference is that QAOA uses quantum interference and specially designed operations to change the probabilities of different answers.
+
+It does not guarantee that the best answer will always be found. That is exactly why we need to study its performance.
+
+## 3. What are we actually going to do?
+
+We will build software that simulates this quantum algorithm and systematically tests how it behaves.
+
+For example, suppose we have a network of eight computers.
+
+Our program will generate the network, calculate the best partition using an exact classical method, and then ask QAOA to find a good partition.
+
+We will compare the answers.
+
+Illustrative example — not experimental results
+
+Suppose the maximum possible cut value is 100.
+
+Exact classical optimum
+
+100
+
+Simulated QAOA
+
+91
+
+Simple classical heuristic
+
+84
+
+The values are hypothetical and only demonstrate how we will compare methods. Actual performance must be measured.
+
+Then we will ask: Why did QAOA find 91 instead of 100? Can we improve it? What happens if we change the circuit? Does it become more expensive to simulate? Does it perform differently on another network?
+
+Those questions become the actual research.
+
+## 4. What makes this more than an ordinary coding project?
+
+We are not just going to download a quantum computing library, execute QAOA, and display the result.
+
+We will investigate four important questions.
+
+Does a bigger quantum circuit give better results?
+
+We will increase the number of QAOA layers and examine whether solution quality improves enough to justify the additional computation.
+
+Can we choose smarter starting parameters?
+
+Instead of starting optimization with arbitrary parameter values, we will investigate whether information about the graph helps us start closer to good solutions.
+
+Does the type of network matter?
+
+We will compare simple chains, rings, random networks, and weighted networks to understand how graph structure influences performance.
+
+Is QAOA actually better than classical methods?
+
+We will compare solution quality and computational cost fairly, without assuming the quantum approach must win.
+
+## 5. But we don't have a quantum computer. How can we do this?
+
+We do not need one for our proposed project.
+
+We will use classical software to simulate quantum circuits, running on Google Colab or Kaggle.
+
+A simulator mathematically calculates how quantum states change when quantum gates are applied.
+
+For small enough problems, we can calculate the entire quantum state and determine the exact probabilities of different answers.
+
+This is useful for learning and validating quantum algorithms, although classical simulation becomes expensive as the number of qubits increases.
+
+Our project is therefore about quantum algorithm research through software, not about building quantum hardware.
+
+## 6. How do our eight textbooks help?
+
+Think of the eight textbooks as our mathematical foundation.
+
+They help us understand why the quantum operations are valid, how quantum circuits work, what computational complexity means, and how to distinguish a genuine mathematical result from a simulation observation.
+
+The QAOA-specific research is built on those foundations.
+
+We will use the books to justify the mathematics and verify our derivations, not merely place their titles in the bibliography.
+
+## 7. What will we have after four months?
+
+We should have a complete software-based research project containing a working QAOA implementation, mathematically verified circuit operations, experimental comparisons on multiple optimization problems or graph families, results and visualizations, an analysis of limitations, and a final technical report.
+
+Most importantly, we should be able to answer:
+
+When does QAOA work well, when does it struggle, and what factors explain the difference?
+
+That is the scientific value of the project.
+
+## 8. How I would explain our proposal to the faculty guide
+
+> Sir, our project focuses on the Quantum Approximate Optimization Algorithm, or QAOA, which is used to find approximate solutions to difficult optimization problems.
+>
+> We are taking the Max-Cut graph problem as our main example. We will mathematically formulate the problem as a quantum Hamiltonian and implement QAOA using software-based quantum circuit simulation.
+>
+> Our main aim is not just to execute the algorithm, but to investigate how circuit depth, parameter selection, and graph structure affect its performance.
+>
+> We will compare the results with classical optimization methods and analyze both solution quality and computational complexity.
+>
+> The entire project will be software-based, supported by rigorous mathematical derivations and our prescribed quantum computing textbooks. We plan to complete it within four months.
+
+In one sentence: We are building and studying a simulated quantum optimization algorithm to understand whether it can find good solutions to difficult graph problems, how efficiently it does so, and what makes it perform better or worse.
+
+That is what our approved first-draft proposal is really saying—in ordinary language.
