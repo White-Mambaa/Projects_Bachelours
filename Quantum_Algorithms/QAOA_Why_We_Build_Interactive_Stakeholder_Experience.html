@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Interactive stakeholder briefing on why build software to study QAOA for weighted Max-Cut."><title>Why Build QAOA Research Software? | QT789_D</title><style>
+:root{--bg:#070d1d;--panel:#101c32;--panel2:#14233c;--line:#293d58;--txt:#eaf2ff;--muted:#a9bbd4;--cyan:#60e2ee;--gold:#ffcc75;--pink:#ef8cae;--green:#70dfb0;--blue:#739df9;--shadow:0 22px 65px #0006}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 90% 0,#163055 0,transparent 34%),var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,sans-serif}a{color:var(--cyan)}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}.shell{display:grid;grid-template-columns:252px minmax(0,1fr)}aside{position:sticky;top:0;height:100vh;overflow:auto;background:#0b1528;border-right:1px solid var(--line);padding:26px 17px;z-index:4}.brand{font-size:21px;font-weight:900;letter-spacing:-.6px}.brand small{display:block;font-size:11px;color:var(--cyan);letter-spacing:2px;text-transform:uppercase}.nav{display:flex;flex-direction:column;gap:4px;margin-top:30px}.nav a{padding:10px 13px;text-decoration:none;color:var(--muted);border-radius:10px;font-size:13px}.nav a:hover{color:white;background:#192b49}.sidebar-note{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:24px}main{min-width:0}.section{padding:85px clamp(22px,5.2vw,92px);border-bottom:1px solid #22314b;scroll-margin-top:15px}.hero{min-height:94vh;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 75% 30%,#16496980,transparent 38%),linear-gradient(135deg,#101c37,#07101e)}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2.5px;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(38px,5.7vw,82px);line-height:1.06;max-width:1050px;letter-spacing:-2px;margin:20px 0}.hero h1 em{font-style:normal;color:var(--cyan)}.lead{font-size:clamp(17px,2vw,22px);max-width:920px;color:#c4d4ea}.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #4b6588;border-radius:50px;padding:6px 12px;color:#cbdaf0;font-size:12px;margin:5px 6px 5px 0}.pill.warn{border-color:#8a683b;color:var(--gold)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:1px solid #4679a2;background:#1b4167;color:white;padding:12px 17px;border-radius:11px;font-weight:700}.btn:hover{background:#265985}.btn.secondary{background:transparent}.h2{font-size:clamp(29px,3.3vw,47px);line-height:1.14;letter-spacing:-1.3px;margin:13px 0 18px}.sub{max-width:850px;color:var(--muted);font-size:17px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:28px 0}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.card{background:linear-gradient(155deg,#172743,#101c32);border:1px solid #34465f;border-radius:18px;padding:25px;box-shadow:var(--shadow)}.card h3{margin:4px 0 12px;font-size:20px}.card p{color:#bacbe0;margin:0}.number{font-size:42px;font-weight:900;color:var(--cyan);line-height:1.2}.tag{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:800;color:var(--gold)}.callout{border-left:4px solid var(--cyan);background:#102d3c;padding:21px 24px;border-radius:0 14px 14px 0;margin:24px 0}.callout.warn{border-color:var(--gold);background:#352a1b}.callout strong{color:white}.split{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin:24px 0}table{width:100%;border-collapse:collapse;min-width:640px}th,td{text-align:left;padding:15px 18px;border-bottom:1px solid #2d3f58;vertical-align:top}th{background:#172844;color:var(--cyan);font-size:13px}tr:last-child td{border-bottom:0}td{color:#d4e0ef}.step{display:flex;gap:17px;align-items:flex-start;margin:18px 0}.step b{flex:0 0 40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#1c5170;color:#9efaff}.step div{flex:1}.step p{margin:2px 0;color:var(--muted)}.lab{border:1px solid #3c5974;background:#0b182c;border-radius:20px;padding:22px;margin-top:27px}.lab-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}.controls{display:flex;flex-wrap:wrap;align-items:end;gap:15px;padding:16px 0}.control{display:flex;flex-direction:column;gap:4px;min-width:130px;color:#c6d5e9;font-size:13px}.control select,.control input[type=number]{background:#152c49;color:white;border:1px solid #4d6786;border-radius:8px;padding:9px}.control input[type=range]{accent-color:var(--cyan);width:170px}.statline{display:flex;flex-wrap:wrap;gap:12px}.stat{background:#152740;border:1px solid #354e68;border-radius:12px;padding:13px 17px;min-width:145px}.stat strong{font-size:25px;color:white;display:block}.stat small{color:var(--muted)}canvas{max-width:100%;display:block;border-radius:12px;background:radial-gradient(circle at 50% 45%,#182c48,#0a1324);border:1px solid #314663}.canvas-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.caption{font-size:12px;color:var(--muted);margin:8px 0 0}.legend{display:flex;gap:18px;flex-wrap:wrap;color:#bdcce0;font-size:13px;margin:12px 0}.dot{width:10px;height:10px;display:inline-block;border-radius:50%;margin-right:6px}.math{font-family:Georgia,serif;font-size:21px;text-align:center;background:#0a1528;border:1px solid #2d4561;border-radius:12px;padding:17px;overflow:auto;color:#e8f5ff}.chart{width:100%;height:auto}.faq details{border:1px solid #344861;border-radius:12px;padding:15px 20px;margin:11px 0;background:#101d33}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted)}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.month{border-top:4px solid var(--cyan);background:#12213a;padding:22px;border-radius:10px}.month:nth-child(2){border-color:var(--blue)}.month:nth-child(3){border-color:var(--gold)}.month:nth-child(4){border-color:var(--green)}.month p{color:var(--muted)}.note{font-size:13px;color:var(--muted)}.foot{padding:36px 5vw;color:var(--muted);font-size:13px}.raw{max-height:480px;overflow:auto;white-space:pre-wrap;word-break:break-word;background:#081426;padding:20px;border-radius:12px;border:1px solid var(--line);font:12px/1.7 ui-monospace,monospace}.reveal{opacity:1}.key{color:var(--gold);font-weight:800}.mini-bar{height:10px;border-radius:5px;background:#1e3550;overflow:hidden}.mini-bar>span{height:100%;display:block;background:linear-gradient(90deg,#3f83c9,var(--cyan))}.status{font-size:12px;color:var(--gold)}@media(max-width:1050px){.shell{grid-template-columns:1fr}aside{position:static;height:auto}.nav{display:flex;flex-direction:row;flex-wrap:wrap;margin-top:12px}.nav a{font-size:12px;padding:7px}.section{padding:60px 24px}.canvas-grid{grid-template-columns:1fr}}@media(max-width:700px){.grid,.grid.two,.split,.roadmap{grid-template-columns:1fr}.hero h1{letter-spacing:-1px}.stat{min-width:120px}.card{padding:20px}}@media print{aside,.actions,.controls,.btn{display:none!important}.shell{display:block}.section{break-inside:avoid;padding:28px 15px}.hero{min-height:auto}body{background:white;color:#111}p,.sub,.card p,td{color:#333}.card,.lab{box-shadow:none;border-color:#aaa;background:#fff}.h2{color:#111}canvas{max-height:250px}}
+</style></head>
+<body>
+<div class="shell"><aside><div class="brand">QAOA<span style="color:var(--cyan)"> / WHY</span><small>QT789_D · Level 7</small></div><div class="nav">
+<a href="#hero">00 · Executive briefing</a><a href="#why">01 · Why build it?</a><a href="#problem">02 · The real problem</a><a href="#benefits">03 · Who benefits?</a><a href="#existing">04 · Already exists?</a><a href="#difference">05 · What is different?</a><a href="#lab">06 · Interactive 3D lab</a><a href="#method">07 · How it works</a><a href="#evaluation">08 · Research evaluation</a><a href="#value">09 · Academic value</a><a href="#roadmap">10 · Four-month roadmap</a><a href="#guide">11 · Guide briefing</a><a href="#faq">12 · Tough questions</a><a href="#references">13 · Sources & boundaries</a></div><div class="sidebar-note">PROPOSAL STAGE<br><strong style="color:var(--gold)">Awaiting faculty-guide approval</strong><br>All interactive results are educational demonstrations, not completed research findings.</div></aside>
+<main>
+<section class="section hero" id="hero"><div class="eyebrow">Quantum Algorithms · Stakeholder rationale · October 2026</div><h1>Why build <em>our own</em> QAOA software if QAOA already exists?</h1><p class="lead">A visual, evidence-aware explanation of the purpose, users, originality, and measurable value of a four-month, entirely software-based Quantum Algorithms course project.</p><div><span class="pill">QT789_D · Level 7</span><span class="pill">4 months</span><span class="pill">Cloud simulation only</span><span class="pill warn">Proposed · Not yet approved</span></div><div class="actions"><a class="btn" href="#why">Start the explanation ↓</a><a class="btn secondary" href="#lab">Explore the live simulation →</a><button class="btn secondary" id="printBtn">Print / Save as PDF</button></div><div class="callout"><strong>Our core position:</strong> We are not inventing QAOA or competing with Qiskit. We are building a transparent, mathematically checked environment to study when QAOA works, why it struggles, and whether graph-informed parameter choices can help under fair evaluation budgets.</div></section>
+<section class="section" id="why"><div class="eyebrow">Question 0 · Purpose</div><h2 class="h2">Why are we developing this software?</h2><p class="sub">Because running an algorithm and understanding its behavior are different achievements. Our project is designed to make the algorithm's mathematics, experimental conditions, and limitations inspectable.</p><div class="grid"><div class="card"><div class="number">01</div><h3>Make the theory executable</h3><p>Connect quantum states, Hamiltonians, and parameterized circuits to code that can be tested against known mathematical identities.</p></div><div class="card"><div class="number">02</div><h3>Explain algorithm behavior</h3><p>Reveal how graph structure, circuit depth, and starting parameters change the expected quality of solutions.</p></div><div class="card"><div class="number">03</div><h3>Compare fairly</h3><p>Use exact small-instance solutions and classical heuristics as baselines, while accounting for optimization evaluations and simulation cost.</p></div></div><div class="callout"><strong>Our software is a research instrument, not a commercial product promise.</strong> Its first job is to produce trustworthy explanations and reproducible evidence, not to claim that quantum methods are faster.</div><h3>What changes because this software exists?</h3><div class="grid two"><div class="card"><span class="tag">Without our research workflow</span><p>We may observe a QAOA output, but cannot easily explain whether it was caused by graph structure, parameter initialization, optimization budget, or a coding convention.</p></div><div class="card"><span class="tag">With our research workflow</span><p>We can repeat experiments, verify calculations independently, isolate one variable at a time, and explain both successful and unsuccessful results.</p></div></div></section>
+<section class="section" id="problem"><div class="eyebrow">The motivating problem</div><h2 class="h2">What is Max-Cut, and why choose it?</h2><p class="sub">A graph consists of vertices and weighted connections. Max-Cut asks us to assign every vertex to one of two groups, maximizing the total weight of edges crossing between the groups.</p><div class="grid two"><div class="card"><h3>Simple story</h3><p>Imagine dividing a connected network into two groups. Every connection between opposite groups earns a score. We want the largest possible score.</p><p style="margin-top:16px">Weighted Max-Cut generalizes this by making some connections more important than others.</p></div><div class="card"><h3>Why it is a useful benchmark</h3><p>The objective is easy to calculate, small instances can be solved exactly, and the same problem can be encoded into a QAOA cost Hamiltonian. It therefore supports rigorous correctness checks.</p></div></div><div class="math">C(z) = Σ<sub>(i,j)∈E</sub> w<sub>ij</sub> (z<sub>i</sub> ⊕ z<sub>j</sub>)</div><p class="note">The number of binary assignments is 2ⁿ; swapping the two group labels gives the same cut. The software uses exact enumeration only on small graphs.</p></section>
+<section class="section" id="benefits"><div class="eyebrow">Question 1 · Stakeholders</div><h2 class="h2">Who could benefit from it?</h2><p class="sub">The immediate value is educational and methodological. Industrial relevance is a possible downstream application, not an outcome that this four-month project can guarantee.</p><div class="grid"><div class="card"><span class="tag">Primary</span><h3>Students & instructors</h3><p>Visualize the relationship between quantum equations, circuit layers, measurement probabilities, and classical optimization results.</p></div><div class="card"><span class="tag">Primary</span><h3>Quantum algorithm researchers</h3><p>Use transparent benchmarks and controlled experiments to study sensitivity, reproducibility, and parameter initialization.</p></div><div class="card"><span class="tag">Primary</span><h3>Software developers</h3><p>Inspect reference implementations, validation tests, and fair comparison protocols before relying on high-level frameworks.</p></div><div class="card"><span class="tag">Potential future</span><h3>Network analysts</h3><p>Study graph partitioning formulations and understand whether variational quantum optimization methods are worth further investigation.</p></div><div class="card"><span class="tag">Potential future</span><h3>Optimization practitioners</h3><p>Explore approximation quality, parameter costs, and limitations on structured problem families.</p></div><div class="card"><span class="tag">Direct stakeholder</span><h3>Faculty guide & reviewers</h3><p>Review an auditable project with mathematical proofs, clear baselines, scoped deliverables, and no unsupported quantum-advantage claims.</p></div></div></section>
+<section class="section" id="existing"><div class="eyebrow">Question 2 · Prior art</div><h2 class="h2">If QAOA already exists, why create our project?</h2><p class="sub">Because the existence of a tool does not eliminate the need to verify, explain, and systematically evaluate the method. But we must be precise about what is—and is not—original.</p><div class="table-wrap"><table><thead><tr><th>Existing work</th><th>What it establishes</th><th>What it means for our proposal</th></tr></thead><tbody><tr><td>Farhi, Goldstone & Gutmann (2014)</td><td>Introduced the Quantum Approximate Optimization Algorithm.</td><td>We cannot claim to invent QAOA.</td></tr><tr><td>Qiskit Algorithms</td><td>Provides QAOA implementations and tutorials.</td><td>A basic QAOA circuit is not a novel software contribution.</td></tr><tr><td>OpenQAOA</td><td>Provides open-source QAOA workflows.</td><td>We should not present a general QAOA dashboard as new.</td></tr><tr><td>Parameter-transfer literature</td><td>Investigates reuse of parameters across problem instances.</td><td>Our graph-informed initialization idea needs a careful novelty audit.</td></tr></tbody></table></div><div class="callout warn"><strong>Academic honesty:</strong> Existing implementations and parameter-transfer research are prior work, not obstacles to hide. The proposal must acknowledge them and explain our narrower evaluation objective.</div><p>Useful public resources: <a href="https://arxiv.org/abs/1411.4028" target="_blank" rel="noopener">Original QAOA paper</a> · <a href="https://qiskit-community.github.io/qiskit-algorithms/tutorials/05_qaoa.html" target="_blank" rel="noopener">Qiskit QAOA tutorial</a> · <a href="https://github.com/entropicalabs/openqaoa" target="_blank" rel="noopener">OpenQAOA</a> · <a href="https://link.springer.com/article/10.1007/s42484-024-00178-9" target="_blank" rel="noopener">Graph-based transfer research</a>.</p></section>
+<section class="section" id="difference"><div class="eyebrow">What we add</div><h2 class="h2">A research-oriented implementation, not a duplicate library</h2><div class="table-wrap"><table><thead><tr><th>General QAOA toolkit</th><th>Our focused course project</th></tr></thead><tbody><tr><td>Executes parameterized quantum circuits</td><td>Independently derives and validates the circuit and its cost function</td></tr><tr><td>Offers optimizers</td><td>Controls initialization, evaluation budgets, and seeds for fair comparisons</td></tr><tr><td>Supports multiple problems</td><td>Studies weighted Max-Cut deeply, with exact small-graph benchmarks</td></tr><tr><td>Reports solution values</td><td>Analyzes approximation ratios, failure cases, graph features, and computation cost</td></tr><tr><td>Often prioritizes general functionality</td><td>Prioritizes reproducibility, explanation, and testable research questions</td></tr></tbody></table></div><div class="grid two"><div class="card"><h3>Candidate investigation</h3><p>Can inexpensive graph features guide QAOA parameter initialization or transfer, reducing objective evaluations at equal solution-quality targets?</p></div><div class="card"><h3>What we will not claim</h3><p>We will not claim quantum speedup, industrial advantage, or original parameter transfer without proof and a review of existing literature.</p></div></div><div class="callout"><strong>Success can be a negative result.</strong> If graph-informed initialization fails to outperform a strong random-multistart baseline, a careful and reproducible explanation is still a valid course-project finding.</div></section>
+<section class="section" id="lab"><div class="eyebrow">Interactive demonstration · Local browser computation</div><h2 class="h2">Explore what our software could study</h2><p class="sub">This is a working educational prototype. Rotate the graph in the 3D-style view, click nodes to change their cut assignment, adjust QAOA angles, and compare the quantum expectation against the exact Max-Cut optimum.</p><div class="lab"><div class="lab-head"><h3 style="margin:0">Live weighted Max-Cut + QAOA laboratory</h3><span class="status" id="experimentStatus">Initializing simulation…</span></div><div class="controls"><label class="control">Graph family<select id="graphSelect"><option value="weighted">Weighted graph (6 vertices)</option><option value="single">Single edge (2)</option><option value="triangle">Triangle (3)</option><option value="path">Path (5)</option><option value="cycle">Cycle (6)</option><option value="dense">Complete graph (6)</option></select></label><label class="control">QAOA γ <span id="gammaVal"></span><input id="gamma" type="range" min="0" max="6.283185307179586" step="0.01" value="0.72"></label><label class="control">QAOA β <span id="betaVal"></span><input id="beta" type="range" min="0" max="3.141592653589793" step="0.01" value="0.42"></label><label class="control">Repeated-angle layers<select id="depth"><option value="1">p = 1</option><option value="2">p = 2</option><option value="3">p = 3</option></select></label></div><div class="statline"><div class="stat"><small>Exact Max-Cut</small><strong id="metricExact">—</strong></div><div class="stat"><small>QAOA expectation</small><strong id="metricExpected">—</strong></div><div class="stat"><small>Expected approximation ratio</small><strong id="metricRatio">—</strong></div><div class="stat"><small>Random-cut baseline</small><strong id="metricRandom">—</strong></div><div class="stat"><small>State norm²</small><strong id="metricNorm">—</strong></div></div><div class="canvas-grid" style="margin-top:20px"><div><canvas id="graphCanvas" width="620" height="390" aria-label="Interactive projected 3D graph"></canvas><div class="legend"><span><i class="dot" style="background:#62d8ed"></i>Partition A</span><span><i class="dot" style="background:#ffcb78"></i>Partition B</span><span><i class="dot" style="background:#73dfb7"></i>Crossing edge</span></div><p class="caption">Drag to rotate the projected 3D network; click a vertex to change its partition. Current manually selected cut: <strong id="partitionScore">—</strong>. This projection is 3D-style geometry drawn in a 2D canvas, not a physical 3D quantum system.</p><button class="btn secondary" id="resetView">Reset graph view</button></div><div><canvas id="histCanvas" width="460" height="390" aria-label="QAOA measurement probabilities"></canvas><p class="caption" id="histCaption"></p></div></div><div class="grid two"><div class="card"><h3>Parameter landscape</h3><canvas id="landscapeCanvas" width="410" height="300" aria-label="QAOA expectation heatmap"></canvas><p class="caption" id="landscapeCaption"></p></div><div class="card"><h3>Run a controlled demonstration</h3><p>Use a grid search to find good repeated-angle parameters, or draw simulated measurements from the computed probability distribution.</p><div class="controls"><label class="control">Number of samples<select id="shots"><option value="128">128</option><option value="512" selected>512</option><option value="2048">2048</option></select></label></div><div class="actions"><button class="btn" id="optBtn">Optimize angle grid</button><button class="btn secondary" id="sampleBtn">Sample outcomes</button></div><p id="sampleResult" class="note" style="margin-top:18px">No measurements sampled yet.</p><p class="note">Grid search uses 2,025 evaluations; the same γ and β are repeated across layers when p &gt; 1. This is a teaching constraint, not the full 2p-parameter QAOA research configuration.</p></div></div><div class="grid two"><div class="card"><h3>Simulation diagnostics</h3><p>Graph edges: <strong id="metricEdges">—</strong> · Basis states: <strong id="metricStates">—</strong> · Layers: <strong id="metricDepth">—</strong></p><p style="margin-top:10px">The simulator explicitly propagates complex amplitudes under the cost and mixer operators. It does not connect to quantum hardware or fabricate experimental data.</p></div><div class="card"><h3>Mathematical sanity checks</h3><p>Execute small reference checks for known cuts, normalization, and the exact single-edge QAOA solution.</p><div class="actions"><button class="btn" id="testBtn">Run 12 checks</button></div><div id="tests" class="note">Tests have not been run.</div></div></div></div></section>
+<section class="section" id="method"><div class="eyebrow">Software architecture</div><h2 class="h2">How will the full research software work?</h2><div class="step"><b>1</b><div><strong>Define the graph</strong><p>Input vertices, edges, and positive weights; generate structured and random graph families with documented seeds.</p></div></div><div class="step"><b>2</b><div><strong>Encode the optimization problem</strong><p>Construct H<sub>C</sub> = ½ Σ w<sub>ij</sub>(I − Z<sub>i</sub>Z<sub>j</sub>) and prove its basis-state eigenvalues match classical cut values.</p></div></div><div class="step"><b>3</b><div><strong>Simulate QAOA</strong><p>Prepare |+⟩ⁿ, alternate cost and mixer evolutions, and calculate the exact expected objective for selected circuit depths.</p></div></div><div class="step"><b>4</b><div><strong>Optimize parameters</strong><p>Compare random multistart, conventional optimization, and a carefully defined graph-informed initialization strategy.</p></div></div><div class="step"><b>5</b><div><strong>Compare classical baselines</strong><p>Use exact enumeration for small graphs and stronger classical heuristics for larger instances; normalize experimental budgets.</p></div></div><div class="step"><b>6</b><div><strong>Audit and report</strong><p>Export numerical results, plots, runtime records, seeds, test logs, and limitations so experiments can be independently reproduced.</p></div></div><div class="math">|ψ<sub>p</sub>(γ,β)⟩ = ∏<sub>ℓ=p→1</sub> exp(−iβ<sub>ℓ</sub>H<sub>B</sub>) exp(−iγ<sub>ℓ</sub>H<sub>C</sub>) |+⟩<sup>⊗n</sup></div></section>
+<section class="section" id="evaluation"><div class="eyebrow">Evidence standard</div><h2 class="h2">What will we measure to justify the work?</h2><div class="grid"><div class="card"><h3>Solution quality</h3><p>Expected cut divided by exact optimum for instances where the optimum is computable; sampled best cut reported separately.</p></div><div class="card"><h3>Optimization cost</h3><p>Number of objective evaluations, convergence curves, wall-clock time, and classical preprocessing effort.</p></div><div class="card"><h3>Quantum resource model</h3><p>Number of qubits, QAOA layers, two-qubit interactions, and idealized circuit gate counts.</p></div><div class="card"><h3>Structure sensitivity</h3><p>Degree statistics, triangles, weighted edges, and carefully selected graph-family comparisons.</p></div><div class="card"><h3>Reproducibility</h3><p>Random seeds, fixed splits, independent reference implementation, unit tests, and published configuration files.</p></div><div class="card"><h3>Limitations</h3><p>Simulation scales exponentially in qubit count; no quantum advantage can be inferred from small classical simulations alone.</p></div></div><div class="callout warn"><strong>Do not confuse metrics:</strong> expected approximation ratio, best observed sampled cut, and probability of sampling an optimum are three different measurements.</div></section>
+<section class="section" id="value"><div class="eyebrow">Academic contribution</div><h2 class="h2">What makes this a credible Level 7 course project?</h2><div class="grid two"><div class="card"><h3>Minimum defensible contribution</h3><p>A correct QAOA implementation, independent validation, controlled benchmarking, and clear mathematical and computational analysis. This is a rigorous implementation-and-evaluation contribution.</p></div><div class="card"><h3>Optional research extension</h3><p>Graph-informed parameter initialization or transfer with a documented novelty review and comparisons under equal budgets. An original contribution is possible but not presumed.</p></div></div><h3>What the project does not promise</h3><div class="table-wrap"><table><thead><tr><th>Unsupported claim</th><th>Defensible statement</th></tr></thead><tbody><tr><td>“We invented a new quantum optimization algorithm.”</td><td>We implement and analyze an established algorithm.</td></tr><tr><td>“Our QAOA beats classical optimization.”</td><td>We will compare against stated baselines and report the results.</td></tr><tr><td>“We demonstrate quantum advantage.”</td><td>We demonstrate classical simulation of a quantum algorithm.</td></tr><tr><td>“Graph-based parameter transfer is new.”</td><td>We will review existing transfer research and test a narrowly defined approach.</td></tr></tbody></table></div></section>
+<section class="section" id="roadmap"><div class="eyebrow">Four-month feasibility</div><h2 class="h2">A realistic sequence after guide approval</h2><div class="roadmap"><div class="month"><span class="tag">Month 1</span><h3>Foundations</h3><p>Textbook mapping, mathematical derivations, baseline simulator, exact small-instance checks.</p></div><div class="month"><span class="tag">Month 2</span><h3>Implementation</h3><p>Multi-layer QAOA, independent SDK cross-checks, parameter optimization, reproducible code.</p></div><div class="month"><span class="tag">Month 3</span><h3>Evaluation</h3><p>Graph families, classical baselines, equal-budget comparisons, parameter studies.</p></div><div class="month"><span class="tag">Month 4</span><h3>Evidence & report</h3><p>Validation, uncertainty, negative findings, final research report, presentation, defense.</p></div></div><div class="callout">The guide reviews and approves the proposal <strong>before</strong> the formal research implementation phase. This website is an explanatory prototype for discussing the project scope.</div></section>
+<section class="section" id="guide"><div class="eyebrow">Faculty-guide briefing</div><h2 class="h2">How to defend the purpose in two minutes</h2><div class="card"><p>“Sir, QAOA is already an established quantum optimization algorithm. Our project does not aim to reinvent it. We propose to develop a mathematically validated, software-only environment for studying QAOA on weighted Max-Cut problems. The important question is not merely whether we can run a QAOA circuit, but how its depth, parameters, and graph structure affect solution quality and computational cost. We will compare it with exact and classical optimization baselines, record reproducible experiments, and investigate whether simple graph information can improve parameter initialization. Existing software and literature will be acknowledged explicitly, and we will not claim quantum advantage without evidence. Our scope is designed for the four-month QT789_D course project.”</p></div><div class="grid two"><div class="card"><h3>Approval request</h3><p>Approval of the problem scope, software-only methodology, mathematical depth, and proposed evaluation questions.</p></div><div class="card"><h3>Decision needed from guide</h3><p>Whether the course requires a strong implementation-and-analysis project or an independently novel research result.</p></div></div></section>
+<section class="section faq" id="faq"><div class="eyebrow">Reviewer questions</div><h2 class="h2">Difficult questions we should be ready to answer</h2><details><summary>Why not simply use Qiskit and stop there?</summary><p>We can use Qiskit as a secondary reference, but the course learning goal includes deriving and verifying the algorithm, designing controlled experiments, and explaining performance. Calling an existing library does not answer those research questions.</p></details><details><summary>What is new in this project?</summary><p>The minimum course contribution is a reproducible, mathematically verified evaluation framework. A more original graph-informed parameter study is proposed but requires prior-work review before a novelty claim.</p></details><details><summary>Does it solve real industrial optimization problems?</summary><p>Not as a demonstrated outcome of this proposal. Weighted Max-Cut is a benchmark with connections to broader optimization formulations; real industrial performance would require separate domain validation.</p></details><details><summary>Why do we need quantum simulation if we have no hardware?</summary><p>Simulation allows us to inspect exact quantum states and validate circuits. It is suitable for studying small instances, but does not demonstrate hardware performance or practical quantum advantage.</p></details><details><summary>Could classical methods outperform QAOA?</summary><p>Yes. Strong classical methods may outperform QAOA in solution quality or computational cost. We will report that outcome rather than selectively presenting favorable cases.</p></details><details><summary>Why weighted Max-Cut?</summary><p>It has a clear binary objective, a direct Hamiltonian encoding, exact small-instance checks, and controllable structural variations. Weighted instances broaden the benchmark without requiring multiple unrelated optimization domains.</p></details><details><summary>What is the biggest research risk?</summary><p>Scope expansion and overstated novelty. We mitigate both by defining small reproducible experiments, a minimum viable mathematical result, and a separate literature review for optional extensions.</p></details><details><summary>Why not use an STL file?</summary><p>STL is a 3D mesh format, not an interactive document container. It cannot directly embed HTML text, controls, JavaScript simulations, or dashboards. A self-contained HTML file is the correct choice for a presentation with interactive 3D-style graphics.</p></details></section>
+<section class="section" id="references"><div class="eyebrow">Research integrity</div><h2 class="h2">References, assumptions, and provenance</h2><p class="sub">The project uses the Octad textbook framework for quantum mathematical foundations. QAOA and graph-transfer research require additional primary papers and software documentation. Specific textbook chapter and page references must be verified from the editions used.</p><div class="grid two"><div class="card"><h3>Foundational Octad</h3><ol><li>Nielsen & Chuang</li><li>Lipton & Regan</li><li>Buchmann</li><li>Rieffel & Polak</li><li>Mermin</li><li>Aaronson</li><li>Kaye, Laflamme & Mosca</li><li>Nakahara & Ohmi</li></ol></div><div class="card"><h3>Specific prior work</h3><ul><li><a href="https://arxiv.org/abs/1411.4028" target="_blank" rel="noopener">Farhi, Goldstone & Gutmann: QAOA (2014)</a></li><li><a href="https://qiskit-community.github.io/qiskit-algorithms/tutorials/05_qaoa.html" target="_blank" rel="noopener">Qiskit Algorithms: QAOA</a></li><li><a href="https://github.com/entropicalabs/openqaoa" target="_blank" rel="noopener">OpenQAOA repository</a></li><li><a href="https://link.springer.com/article/10.1007/s42484-024-00178-9" target="_blank" rel="noopener">Graph parameter transfer study (2024)</a></li></ul><p class="note">These links are offered as public reading sources, not as claims that we have completed a comprehensive novelty audit.</p></div></div><div class="callout warn"><strong>Evidence boundary:</strong> The accompanying interactive laboratory is a browser-based educational demonstration. It is not a peer-reviewed benchmark, completed project experiment, or evidence of quantum speedup.</div><button class="btn secondary" id="sourceToggle">Show / hide source discussion text</button><div id="sourceContent" hidden><p class="note">The following is the supplied supporting discussion, preserved for reference.</p><pre class="raw">Yes. This is one of the most important questions to answer before submitting our Quantum Algorithms (QT789_D) proposal to the faculty guide.
+
+We need to establish three things:
+
+1. Why are we developing this software?
+2. Who could benefit from it?
+3. If QAOA already exists, what is the purpose of our project?
+
+The key distinction is that we are not claiming to invent QAOA. We are proposing to build a software-based research framework that implements, explains, tests, and evaluates QAOA for combinatorial optimization.
+
+## 1. What is the actual use of our project?
+
+Imagine a company has a large network of interconnected computers, locations, or tasks. It needs to divide the network into two groups while maximizing the total importance of the connections between those groups.
+
+This is a mathematical problem called Max-Cut.
+
+Illustration: divide a network into two groups to maximize the total weight of connections crossing between them.
+
+A classical computer can solve small examples exactly. Larger instances may require approximation algorithms or heuristics.
+
+Our project investigates whether QAOA, a quantum optimization algorithm, can produce good solutions, and how its performance depends on the problem and algorithm configuration.
+
+### What will our software actually do?
+
+Input: A graph optimization problem
+
+Vertices, edges, and edge weights
+
+Quantum simulation
+
+QAOA circuit and parameter optimization
+
+Classical methods
+
+Exact solver and comparison algorithms
+
+Output: Analysis and comparison
+
+Solution quality · Runtime · Circuit depth · Convergence · Graph structure
+
+So our software is not just a Max-Cut calculator. Its purpose is to provide a controlled environment for understanding and evaluating a quantum optimization algorithm.
+
+## 2. Is anyone already working on this?
+
+Yes. QAOA is an established and active research area. It was introduced in 2014 by Edward Farhi, Jeffrey Goldstone, and Sam Gutmann. Researchers have been studying its mathematical properties, circuit design, parameter optimization, and applications for more than a decade.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://arxiv.org\&amp;sz=32)
+
+arXiv
+
+
+
+Here are some important examples.
+
+[Frontiers | Similarity-based parameter transferability in the quantum approximate optimization algorithm](https://images.openai.com/static-rsc-4/R2X95b60r1sGeJrixzCfgWEndv7H9ZTs9TbC4GJZEN2q_aatDfU8i9G7GE24eRJ-3DBTyKRusjzR5VqLvvhXscRWrfDSMZesvRQ6-0pk3dWeBubxSP-E6L3T5AhValGB83HjbWYhW0MwrnSKSH1wu_5Gta7Smo8Ffug0PJXtJTU?purpose=inline)
+
+IBM Quantum — Qiskit
+
+IBM provides QAOA implementations, tutorials, circuit tools, and optimization examples, including Max-Cut.
+
+This confirms that building a basic QAOA circuit is not, by itself, a new research contribution.
+
+[QAOA tutorial](https://qiskit-community.github.io/qiskit-algorithms/tutorials/05_qaoa.html)&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://qiskit-community.github.io\&amp;sz=32)
+
+Qiskit Algorithms 0.4.0
+
+
+
+[QEC25](https://images.openai.com/static-rsc-4/XVqLuZdBZD-NIDEsVXzzFqLo_8iKF2t2FrF51vS9-49p7aL77nXav1s9ODgZkRoD291h3WkCzB2TmJY0XK97nmeWwa2B6dap0TA3w5TZ_13NRTRom184pgwQWaaUrcw1wfe7McVHHlOtfudCECRW9n-_iSYWaSAOWWjNgGtxLUs?purpose=inline)
+
+OpenQAOA — Open-source framework
+
+OpenQAOA already provides workflows for QAOA, parameter optimization, simulation, and benchmarking.
+
+A general-purpose QAOA software framework already exists.
+
+[OpenQAOA repository](https://github.com/entropicalabs/openqaoa)&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://github.com\&amp;sz=32)
+
+GitHub
+
+
+
+[AI For Customer Experiences: A Retail Example - Developer Guides](https://images.openai.com/static-rsc-4/5Y88G9PaRvzBXhkWnl2s9hYv3va4nlkPucO3VWkG8b89CU1-2MlYrvFv9DBBV1lftMk-CDhuRdsN-A6uphE_QIXe6wQMSPiYUc_7Ef9NIbEsWP4f4fDqMy42VoTdAqrPCIpRZaa1d_zzZQNEtx34P7MgUX2Er1kK13dMjOX3eXk?purpose=inline)
+
+Graph-based QAOA parameter transfer research
+
+A 2024 paper by Jose Falla and colleagues studied graph representation learning to transfer QAOA parameters between graph instances, reducing optimization effort in their experiments.
+
+This is especially relevant because our proposal includes graph structure and parameter initialization.
+
+[Read the research paper](https://link.springer.com/article/10.1007/s42484-024-00178-9)&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://link.springer.com\&amp;sz=32)
+
+Springer Nature Link
+
+
+
+This means we should not claim that QAOA, Max-Cut simulation, parameter transfer, or a QAOA dashboard is an entirely new idea.
+
+## 3. Then why should we create our own software?
+
+Because our goal is different from simply releasing another quantum computing library.
+
+Our project is an academic investigation of QAOA&#x27;s behavior, with an implementation designed to make that investigation transparent, reproducible, and mathematically verifiable.
+
+| Existing software                      | Our proposed course project                             |
+| -------------------------------------- | ------------------------------------------------------- |
+| Provides QAOA implementations          | Independently verifies the mathematical implementation  |
+| Runs optimization algorithms           | Investigates why optimization succeeds or fails         |
+| Supports quantum circuits              | Measures how circuit depth affects quality and cost     |
+| Offers visualization tools             | Connects visual results to specific research questions  |
+| May support many optimization problems | Focuses on a controlled weighted Max-Cut benchmark      |
+| Provides general functionality         | Produces a documented, reproducible academic evaluation |
+
+For a Level 7 course project, implementing an established algorithm and rigorously evaluating it can be academically worthwhile. The work does not automatically need to introduce a previously unknown quantum algorithm.
+
+However, if the guide expects a novel research contribution, we must define a narrower question that existing papers have not already answered.
+
+## 4. Where could our contribution be?
+
+I would focus our investigation on one specific idea:
+
+Can inexpensive structural information about a weighted graph help us select better starting parameters for QAOA under a fixed computational budget?
+
+For example, suppose we have 100 different graph optimization problems.
+
+Instead of optimizing QAOA completely from scratch for every graph, we could investigate whether graphs with similar structural properties can reuse or adapt previously successful parameters.
+
+Previously studied graph
+
+Known good QAOA parameters
+
+New graph
+
+Try transferring parameters
+
+Compare parameter reuse against fresh optimization
+
+We would compare three strategies: random initialization, a standard optimization baseline, and a graph-informed initialization strategy.
+
+Then we would measure whether graph-informed initialization actually reduces objective evaluations or improves solution quality under equal budgets.
+
+The underlying idea has already been studied, including graph-learning approaches. Our potential contribution would need to come from a carefully defined variation, stronger evaluation, or a new analytical result—not merely applying parameter transfer.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://link.springer.com\&amp;sz=32)
+
+Springer Nature Link
+
++1
+
+
+
+## 5. Who could benefit from our project?
+
+The most immediate beneficiaries are students, researchers, and developers investigating quantum optimization.
+
+Potential longer-term application areas include graph clustering, network analysis, statistical physics, and optimization problems that can be transformed into suitable mathematical formulations. IBM&#x27;s QAOA materials discuss several such application areas.&amp;#x20;
+
+[image](https://www.google.com/s2/favicons?domain=https://qiskit.qotlabs.org\&amp;sz=32)
+
+IBM Quantum Documentation
+
++1
+
+
+
+But we must distinguish potential relevance from demonstrated usefulness.
+
+Our four-month simulation project will not establish that QAOA can solve real-world industrial problems faster than leading classical algorithms. It will help us understand the conditions under which QAOA produces useful approximate solutions.
+
+## 6. Is our project worth doing?
+
+Yes, as a Quantum Algorithms course project, provided we define its contribution correctly.
+
+Here is how I would evaluate its academic value.
+
+| Dimension                                      | Assessment                                                 |
+| ---------------------------------------------- | ---------------------------------------------------------- |
+| Relevance to QT789_D                           | Strong                                                     |
+| Mathematical depth                             | Strong if derivations and complexity analysis are rigorous |
+| Software feasibility                           | Good for small and medium simulated instances              |
+| Existing prior work                            | Extensive                                                  |
+| Novelty of basic QAOA implementation           | Low                                                        |
+| Potential for a focused original investigation | Possible, but requires literature review                   |
+| Four-month feasibility                         | Reasonable with controlled scope                           |
+
+Our greatest risk is not that someone else has already implemented QAOA. That is expected.
+
+The real risk is presenting ordinary implementation work as if it were a new research discovery.
+
+We can avoid that by being explicit about what is established knowledge, what we are reproducing, and what we are investigating.
+
+## 7. What should we tell our guide?
+
+&gt; Sir, QAOA is an established quantum optimization algorithm, and several research groups have already developed implementations and studied its performance.
+&gt;
+&gt; Our project is not intended to reinvent QAOA. We propose to develop a mathematically validated, software-based framework for investigating QAOA on weighted Max-Cut problems.
+&gt;
+&gt; We will study how circuit depth, optimization parameters, and graph structure affect solution quality and computational cost. We will also compare our results against classical optimization methods under controlled conditions.
+&gt;
+&gt; We are particularly interested in whether graph-informed parameter initialization can reduce optimization effort. We will review existing research carefully before claiming any original contribution.
+&gt;
+&gt; The project will be completed entirely through cloud-based software simulation within four months.
+
+## My recommendation before submitting Proposal Version 2.0
+
+We should strengthen the proposal with a dedicated Related Work, Research Gap, and Proposed Contribution section.
+
+The current proposal explains what we will build, but it does not yet sufficiently establish what our work adds to existing QAOA research.
+
+For the guide, I would position the project as:
+
+“A Reproducible Mathematical and Computational Study of QAOA for Weighted Max-Cut, with an Investigation of Graph-Informed Parameter Initialization.”
+
+This is more defensible than claiming to develop an entirely new quantum optimization algorithm.
+
+The next decision is whether your guide expects a rigorous implementation-and-analysis course project or a project with an explicitly novel research contribution. That distinction will determine how ambitious we should make our research gap and experiments.</pre></div></section>
+<footer class="foot">QT789_D · Quantum Algorithms · Four-month software-only course project · Working proposal pending faculty approval · Educational visualization, not completed research results.</footer></main></div>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);const PI=Math.PI;const fmt=x=>Number(x).toFixed(4);const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+let graph=[],n=5,partition=[],gamma=.72,beta=.42,depth=1,phase=0,spin=.25,tilt=.25,drag=false,lastX=0,lastY=0,probs=[],costs=[],latest=null;
+const palettes={A:'#62d8ed',B:'#ffcb78'};
+function makeGraph(kind){
+ const edges=[];const add=(a,b,w=1)=>edges.push([a,b,w]);
+ if(kind==='single'){n=2;add(0,1,1)}
+ if(kind==='path'){n=5;for(let i=0;i<n-1;i++)add(i,i+1,1)}
+ if(kind==='cycle'){n=6;for(let i=0;i<n;i++)add(i,(i+1)%n,1)}
+ if(kind==='triangle'){n=3;add(0,1);add(1,2);add(0,2)}
+ if(kind==='weighted'){n=6;[[0,1,3],[1,2,1],[2,3,2],[3,4,3],[4,5,1],[5,0,2],[0,3,2],[1,4,1]].forEach(e=>edges.push(e))}
+ if(kind==='dense'){n=6;for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)add(i,j,1)}
+ graph=edges;partition=Array.from({length:n},(_,i)=>i%2);compute();drawGraph();drawAll();
+}
+function costOf(z){let c=0;for(const [a,b,w] of graph)if(((z>>a)^(z>>b))&1)c+=w;return c}
+function exact(){let mx=-Infinity,arg=[];for(let z=0;z<(1<<n);z++){const c=costOf(z);if(c>mx+1e-9){mx=c;arg=[z]}else if(Math.abs(c-mx)<1e-9)arg.push(z)}return {value:mx,states:arg}}
+function qaoa(g,b,p){const N=1<<n,re=new Float64Array(N),im=new Float64Array(N),cc=new Float64Array(N);for(let z=0;z<N;z++){re[z]=1/Math.sqrt(N);cc[z]=costOf(z)}for(let layer=0;layer<p;layer++){
+ for(let z=0;z<N;z++){const a=-g*cc[z],c=Math.cos(a),s=Math.sin(a),r=re[z],v=im[z];re[z]=r*c-v*s;im[z]=r*s+v*c}
+ const c=Math.cos(b),s=Math.sin(b);for(let q=0;q<n;q++){const mask=1<<q;for(let z=0;z<N;z++){if(z&mask)continue;const k=z|mask;const r0=re[z],r1=re[k],i0=im[z],i1=im[k];re[z]=c*r0+s*i1;im[z]=c*i0-s*r1;re[k]=c*r1+s*i0;im[k]=c*i1-s*r0}}}
+ const pp=new Float64Array(N);let E=0,sum=0;for(let z=0;z<N;z++){pp[z]=re[z]*re[z]+im[z]*im[z];sum+=pp[z];E+=pp[z]*cc[z]}return {E,pp,normalization:sum}}
+function compute(){costs=Array.from({length:1<<n},(_,z)=>costOf(z));latest=qaoa(gamma,beta,depth);probs=Array.from(latest.pp);const opt=exact();$('metricExact').textContent=fmt(opt.value);$('metricExpected').textContent=fmt(latest.E);$('metricRatio').textContent=opt.value?((latest.E/opt.value)*100).toFixed(1)+'%':'—';$('metricNorm').textContent=fmt(latest.normalization);$('metricRandom').textContent=fmt(graph.reduce((s,e)=>s+e[2],0)/2);$('metricDepth').textContent=String(depth);$('metricEdges').textContent=String(graph.length);$('metricStates').textContent=String(1<<n);$('gammaVal').textContent=fmt(gamma);$('betaVal').textContent=fmt(beta);$('partitionScore').textContent=fmt(graph.reduce((s,[a,b,w])=>s+(partition[a]!==partition[b]?w:0),0));$('experimentStatus').textContent='Live exact statevector computation · '+n+' qubits · '+(1<<n)+' amplitudes · repeated-angle depth '+depth;}
+function projectNode(i,w,h){const t=2*PI*i/n+phase;const r=Math.min(w,h)*.32;let x=Math.cos(t)*r,y=Math.sin(t)*r,z=Math.sin(2*t)*r*.38;const c=Math.cos(spin),s=Math.sin(spin);let xx=x*c-z*s,zz=x*s+z*c;const ct=Math.cos(tilt),st=Math.sin(tilt);let yy=y*ct-zz*st;zz=y*st+zz*ct;const scale=1+zz/(Math.min(w,h)*2.5);return [w/2+xx*scale,h/2+yy*scale,zz]}
+function drawGraph(){const can=$('graphCanvas'),ctx=can.getContext('2d'),w=can.width,h=can.height;ctx.clearRect(0,0,w,h);let pts=Array.from({length:n},(_,i)=>projectNode(i,w,h));for(const [a,b,wt] of graph){const cross=partition[a]!==partition[b];ctx.strokeStyle=cross?'#73dfb7':'#6c7e9c';ctx.lineWidth=cross?3+wt*.6:1.5;ctx.beginPath();ctx.moveTo(...pts[a].slice(0,2));ctx.lineTo(...pts[b].slice(0,2));ctx.stroke();const mx=(pts[a][0]+pts[b][0])/2,my=(pts[a][1]+pts[b][1])/2;ctx.font='13px system-ui';ctx.fillStyle='#e9f4ff';ctx.fillText(wt,mx+4,my-5)}pts.forEach(([x,y,z],i)=>{ctx.beginPath();ctx.arc(x,y,17+z/80,0,2*PI);ctx.fillStyle=partition[i]?palettes.B:palettes.A;ctx.shadowColor=ctx.fillStyle;ctx.shadowBlur=16;ctx.fill();ctx.shadowBlur=0;ctx.fillStyle='#081327';ctx.textAlign='center';ctx.font='bold 13px system-ui';ctx.fillText(i,x,y+4)});ctx.textAlign='left'}
+function drawHist(){const can=$('histCanvas'),ctx=can.getContext('2d'),w=can.width,h=can.height;ctx.clearRect(0,0,w,h);const arr=probs.map((p,z)=>({p,z,c:costs[z]})).sort((a,b)=>b.p-a.p).slice(0,Math.min(12,probs.length));const max=Math.max(...arr.map(x=>x.p),.01);ctx.font='12px system-ui';arr.forEach((d,i)=>{let y=25+i*27;ctx.fillStyle='#bcd0e7';ctx.fillText(d.z.toString(2).padStart(n,'0'),10,y+12);ctx.fillStyle='#203b57';ctx.fillRect(75,y,can.width-170,14);ctx.fillStyle=d.c===exact().value?'#6edfb2':'#68b7e8';ctx.fillRect(75,y,(can.width-170)*d.p/max,14);ctx.fillStyle='#d8eaff';ctx.fillText((d.p*100).toFixed(1)+'%',can.width-83,y+12)});$('histCaption').textContent='Top '+arr.length+' basis states sorted by measurement probability. Green = exact optimal cut; blue = other cut.'}
+function drawLandscape(){const can=$('landscapeCanvas'),ctx=can.getContext('2d'),w=can.width,h=can.height;const cells=35,sx=w/cells,sy=h/cells,opt=exact().value||1;for(let j=0;j<cells;j++)for(let i=0;i<cells;i++){const g=2*PI*i/(cells-1),b=PI*j/(cells-1),v=qaoa(g,b,depth).E/opt;const t=clamp(v,0,1);ctx.fillStyle=`hsl(${210-170*t},${65+20*t}%,${14+48*t}%)`;ctx.fillRect(i*sx,j*sy,Math.ceil(sx)+1,Math.ceil(sy)+1)}ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.beginPath();ctx.arc(gamma/(2*PI)*w,beta/PI*h,7,0,2*PI);ctx.stroke();$('landscapeCaption').textContent='Exact expectation landscape. Horizontal: γ ∈ [0,2π]. Vertical: β ∈ [0,π]. White ring = selected parameters. Color scale is relative to the exact maximum.'}
+function drawAll(){drawGraph();drawHist();drawLandscape()}
+function sampleShots(){const shots=Number($('shots').value);const counts=new Map;for(let i=0;i<shots;i++){const r=Math.random();let s=0,z=probs.length-1;for(let j=0;j<probs.length;j++){s+=probs[j];if(r<=s){z=j;break}}counts.set(z,(counts.get(z)||0)+1)}let best=-Infinity,hit=0;for(const [z,c] of counts){best=Math.max(best,costs[z]);if(Math.abs(costs[z]-exact().value)<1e-8)hit+=c}$('sampleResult').textContent=`${shots} simulated measurements: best sampled cut = ${fmt(best)}, optimal-outcome frequency = ${(100*hit/shots).toFixed(1)}%. This is Monte Carlo sampling from simulated probabilities, not quantum hardware.`}
+function optimize(){let best={E:-Infinity,g:0,b:0};const steps=45;for(let i=0;i<steps;i++)for(let j=0;j<steps;j++){const g=2*PI*i/(steps-1),b=PI*j/(steps-1),r=qaoa(g,b,depth);if(r.E>best.E)best={E:r.E,g,b}}gamma=best.g;beta=best.b;$('gamma').value=gamma;$('beta').value=beta;compute();drawAll();$('sampleResult').textContent='Grid search finished ('+(steps*steps)+' objective evaluations). Selected best grid point: expected cut '+fmt(best.E)+'. This is not proof of global optimality.'}
+function check(){const tests=[];const add=(name,pass)=>tests.push([name,!!pass]);const old={graph,n,partition,gamma,beta,depth};makeGraph('single');add('Single-edge exact Max-Cut = 1',exact().value===1);add('Single-edge basis costs = [0,1,1,0]',[0,1,1,0].every((v,i)=>costs[i]===v));add('Uniform state normalization',Math.abs(qaoa(0,0,1).normalization-1)<1e-10);add('Random-cut baseline = 0.5',Math.abs(graph.reduce((s,e)=>s+e[2],0)/2-.5)<1e-10);add('Analytical single-edge optimum',Math.abs(qaoa(PI/2,PI/8,1).E-1)<1e-9);add('Zero-angle expectation = 0.5',Math.abs(qaoa(0,0,1).E-.5)<1e-10);add('Single-edge p=2 state normalized',Math.abs(qaoa(.8,.4,2).normalization-1)<1e-10);add('QAOA expectation is bounded',qaoa(.9,.3,1).E<=1+1e-10);makeGraph('triangle');add('Triangle Max-Cut = 2',exact().value===2);add('Triangle complement symmetry',costs.every((c,z)=>c===costs[z^7]));makeGraph('cycle');add('6-cycle Max-Cut = 6',exact().value===6);add('6-cycle uniform expectation = 3',Math.abs(qaoa(0,0,1).E-3)<1e-10);graph=old.graph;n=old.n;partition=old.partition;gamma=old.gamma;beta=old.beta;depth=old.depth;compute();drawAll();$('tests').innerHTML=tests.map(([name,ok],i)=>`<div class="step"><b style="background:${ok?'#1a644e':'#81394d'}">${ok?'✓':'×'}</b><div>${i+1}. ${name}</div></div>`).join('')+`<div class="callout">${tests.filter(x=>x[1]).length}/${tests.length} checks passed. Educational checks only; independent SDK cross-validation remains planned.</div>`}
+$('graphSelect').onchange=e=>makeGraph(e.target.value);$('gamma').oninput=e=>{gamma=+e.target.value;compute();drawAll()};$('beta').oninput=e=>{beta=+e.target.value;compute();drawAll()};$('depth').onchange=e=>{depth=+e.target.value;compute();drawAll()};$('sampleBtn').onclick=sampleShots;$('optBtn').onclick=optimize;$('testBtn').onclick=check;
+$('graphCanvas').addEventListener('pointerdown',e=>{drag=true;lastX=e.offsetX;lastY=e.offsetY;$('graphCanvas').setPointerCapture(e.pointerId)});$('graphCanvas').addEventListener('pointermove',e=>{if(!drag)return;spin+=(e.offsetX-lastX)*.012;tilt=clamp(tilt+(e.offsetY-lastY)*.012,-1.2,1.2);lastX=e.offsetX;lastY=e.offsetY;drawGraph()});$('graphCanvas').addEventListener('pointerup',e=>{drag=false});$('graphCanvas').addEventListener('click',e=>{if(Math.abs(e.movementX)>3)return;const c=$('graphCanvas'),r=c.getBoundingClientRect(),x=(e.clientX-r.left)*c.width/r.width,y=(e.clientY-r.top)*c.height/r.height;let k=-1,dist=1e9;for(let i=0;i<n;i++){const p=projectNode(i,c.width,c.height),d=(p[0]-x)**2+(p[1]-y)**2;if(d<dist){dist=d;k=i}}if(k>=0&&dist<1300){partition[k]^=1;compute();drawGraph()}});
+$('resetView').onclick=()=>{spin=.25;tilt=.25;drawGraph()};$('printBtn').onclick=()=>window.print();$('sourceToggle').onclick=()=>{$('sourceContent').hidden=!$('sourceContent').hidden};
+makeGraph('weighted');
+</script></body></html>
